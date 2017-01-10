@@ -1,6 +1,8 @@
 <h1><%= @post.title %></h1>
 
 <p>Submitted <%= time_ago_in_words(@post.created_at) %></p>
-
-<h3><%= @post.body %></h3>
 <hr>
+<p><%= @post.body %></p>
+<hr>
+<div class="col-sm-6"><%= link_to "Edit", edit_post_path(@post), class:"btn btn-default btn-block btn-lg btn-grey" %></div>
+<div class="col-sm-6"><%= link_to "Delete",  @post, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-block btn-lg" %> </div>
