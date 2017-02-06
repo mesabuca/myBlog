@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to @category, notice: "Category Created"
+      redirect_to root_path, notice: "Category Created"
     else
       render 'new'
     end
@@ -30,11 +30,10 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
   end
 
   private
-  def post_params
+  def category_params
     params.require(:category).permit(:name)
   end
 end

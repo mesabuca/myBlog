@@ -72,11 +72,30 @@
         </div>
 
         <hr>
-        <div class="recently list-group" data-spy="affix" data-offset-top="<%= parallax_size + 500 %>" >
-          <h3 align="center"><strong>Recently Updates</strong></h3>
-            <% @posts.first(7).each do |recentPost|  %>
-              <%= link_to truncate(recentPost.title.capitalize, length:50, separator:' ', omission: ' ...'), recentPost, class:"list-group-item",align:"center" %>
-            <% end %>
+        <div class="affixed-sidebar" data-spy="affix" data-offset-top="<%= parallax_size + 500 %>">
+          <div class="recently list-group">
+            <h3 align="center"><strong>Recently Updates</strong></h3>
+              <% @posts.first(7).each do |recentPost|  %>
+                <%= link_to truncate(recentPost.title.capitalize, length:50, separator:' ', omission: ' ...'), recentPost, class:"list-group-item",align:"center" %>
+              <% end %>
+          </div>
+          <div class="categories">
+            <table style="width:100%">
+              <% i = 0 %>
+              <tr>
+              <% @categories.each do |category| %>
+                <% if i == 3 %>
+                  </tr>
+                  <tr>
+                <% end %>
+                    <td><%= category.name %></td>
+                <% if i == 3 %>
+                  <% i = 0 %>
+                <% end %>
+                <% i+=1 %>
+              <% end %>
+            </table>
+          </div>
         </div>
       </div>
      <div class="col-sm-2"></div>
