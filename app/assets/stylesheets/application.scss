@@ -36,11 +36,12 @@
      background-size: cover;
  }
 
+//////////Here is for focusing to posts////////////
  #posts{
    margin-top: -64px;
    height: 60px;
  }
-
+///////////////////////////////////////////////////
 body{
   background-color: #282b30;
   color : #828282;
@@ -84,12 +85,12 @@ nav {
 #myNavbar  {
   margin-top: 7px;
   padding-bottom: 7px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .navbar-buttons{
-  font-size: 170%;
+  font-size: 130%;
 }
 p{
   font-size: 120%;

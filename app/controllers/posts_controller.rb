@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   def create
     @post  = Post.new(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Post Created"
     else
       render 'new'
     end

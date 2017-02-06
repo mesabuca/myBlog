@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <%= link_to post do%>
         <div class="panel-heading"><h4><strong><%= link_to post.title, post%></strong> <br><small>Created by ... <%= post.created_at.strftime("%B, %d, %Y") %></small></h4></div>
-        <div class="panel-body"><p><%= truncate(markdown(post.body), length: 300, separator: ' ', omission: ' ...') %></p></div>
+        <div class="panel-body"><p><%= markdown(truncate(post.body, length: 300, separator: ' ', omission: ' ...')) %></p></div>
       <% end %>
     </div>
 <% end %>
