@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @paginatedPosts = Post.all.order('created_at DESC').page(params[:page]).per('7')
   end
 
   def new

@@ -1,11 +1,13 @@
 
 
   <h1 align="center" id="asdasdasd"> POSTS </h1>
-<% @posts.each do |post| %>
+<% @paginatedPosts.each do |post| %>
     <div class="panel panel-default">
       <%= link_to post do%>
         <div class="panel-heading"><h4><strong><%= link_to post.title, post%></strong> <br><small>Created by ... <%= post.created_at.strftime("%B, %d, %Y") %></small></h4></div>
-        <div class="panel-body"><p><%= markdown(truncate(post.body, length: 300, separator: ' ', omission: ' ...')) %></p></div>
+        <div class="panel-body"><p><%= markdown(truncate(post.body, length: 500, separator: ' ', omission: ' ...')) %></p></div>
       <% end %>
     </div>
 <% end %>
+
+<%= paginate @paginatedPosts %>
