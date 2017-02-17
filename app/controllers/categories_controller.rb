@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to root_path, notice: "Category Created"
+      redirect_to posts_path, notice: "Category Created"
     else
       render 'new'
     end

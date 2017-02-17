@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  get 'welcome/edit'
+
   resources :posts
-  root "posts#index"
+  root "welcome#index"
   resources :categories
+  resources :welcome
 end

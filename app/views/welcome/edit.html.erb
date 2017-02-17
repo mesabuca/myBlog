@@ -1,0 +1,23 @@
+<div class="form-group">
+  <%= form_for @wMessage do |f| %>
+  	<% if @wMessage.errors.any? %>
+  		<div id="errors">
+  			<h2><%= pluralize(@wMessage.errors.count, "error") %> prevented this post from saving:</h2>
+  			<ul>
+  				<% @wMessage.errors.full_messages.each do |msg| %>
+  					<li><%= msg %></li>
+  				<% end %>
+  			</ul>
+  		</div>
+  	<% end %>
+    <%= f.label :mainTitle%><br>
+    <%= f.text_field :mainTitle, class:"form-control input-lg", autocomplete:'off' %><br>
+  	<%= f.label :title %><br>
+  	<%= f.text_field :title, class:"form-control input-lg", autocomplete:'off' %>
+    <br>
+  	<%= f.label :body %>
+  	<%= f.text_area :body, class:"form-control input-lg", rows:"12"%><br>
+  	<%= f.submit class:"btn btn-default btn-block btn-lg btn-grey" %>
+  <% end %>
+
+</div>

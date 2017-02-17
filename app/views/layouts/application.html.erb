@@ -6,100 +6,86 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% parallax_size = 0 %>
     <title>MyBlog</title>
   </head>
 
   <body>
+    <div class="navbar-background">
+      <nav class="navbar-fixed-top navbar-buttons">
+        <div class="navbar-header"></div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "All Posts", posts_path %></li>
+              <li><a href="#">Page 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Create Category", new_category_path%></li>
+              <li><%= link_to "New Post", new_post_path %></li>
+              <li><a href="#">Sign Up</a></li>
+              <li><a href="#">Login</a></li>
+              <%  %>
+            </ul>
+          </div>
+      </nav>
+    </div>
 
-    <% if request.env['PATH_INFO'] == root_path || request.env['PATH_INFO'] == posts_path  %>
-      <div class="parallax" ></div>
-      <div id="posts"></div>
-      <% parallax_size += 650 %>
+    <% if request.env['PATH_INFO'] == root_path || request.env['PATH_INFO'] == welcome_index_path  %>
+      <%= yield %>
     <% else %>
     <br><br><br><br>
-    <% end %>
-  <div class="navbar-background">
-    <nav class="navbar-fixed-top navbar-buttons">
-      <div class="navbar-header"></div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><%= link_to "Home", posts_path(anchor:"posts") %></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Create Category", new_category_path%></li>
-            <li><%= link_to "New Post", new_post_path %></li>
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Login</a></li>
-            <%  %>
-          </ul>
-        </div>
-    </nav>
-  </div>
-  <div class="col-sm-1"></div>
+    <div class="col-sm-1"></div>
     <div class="col-sm-7">
-
       <%= yield %>
     </div>
     <div class="col-sm-4">
       <div class="sidebar">
-        <h2 align="center">About Me</h2>
-        <div class="about-me">
-          <p>
-            Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard dummy
-            text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled
-            it to make a type specimen book. It has survived
-            not only five centuries, but also the leap
-            into electronic typesetting, remaining essentially
-            unchanged. It was popularised in the 1960s with the
-            release of Letraset sheets containing Lorem
-            Ipsum passages, and more recently with desktop
-            publishing software like Aldus PageMaker including
-            versions of Lorem Ipsum.
-          </p>
-          <ul class="social-network social-circle">
-              <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-              <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
+        <h2 align="center"><%= @wMessage.title %></h2>
+        <div class="about-me sidebar_border">
+          <%= markdown(@wMessage.body) %>
         </div>
+        <br>
+        <ul class="social-network social-circle">
+          <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+          <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+          <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
 
         <hr>
-        <div class="affixed-sidebar" data-spy="affix" data-offset-top="<%= parallax_size + 500 %>">
-          <div class="recently list-group">
+        <div class="affixed-sidebar" data-spy="affix" data-offset-top="400">
             <h3 align="center"><strong>Recently Updates</strong></h3>
+            <div class="recently list-group sidebar_border">
               <% @posts.first(7).each do |recentPost|  %>
                 <%= link_to truncate(recentPost.title.capitalize, length:50, separator:' ', omission: ' ...'), recentPost, class:"list-group-item",align:"center" %>
               <% end %>
           </div>
-          <div class="categories">
-            <table style="width:100%">
-              <% i = 0 %>
-              <tr>
-              <% @categories.each do |category| %>
-                <% if i == 3 %>
-                  </tr>
-                  <tr>
-                <% end %>
-                    <td><%= category.name %></td>
-                <% if i == 3 %>
-                  <% i = 0 %>
-                <% end %>
-                <% i+=1 %>
-              <% end %>
-            </table>
-          </div>
+          <% if @categories[0] %>
+          <h3 align="center"><strong>Categories</strong></h3>
+            <div class="categories sidebar_border">
+              <table style="width:100%">
+                <% i = 0 %>
+                <tr>
+                  <% @categories.each do |category| %>
+                    <% if i == 3 %>
+                      </tr>
+                      <tr>
+                    <% end %>
+                        <td class="list-group"><%=link_to category.name, category, class:"list-group-item" %></td>
+                    <% if i == 3 %>
+                      <% i = 0 %>
+                    <% end %>
+                    <% i+=1 %>
+                  <% end %>
+              </table>
+            </div>
+          <% end %>
         </div>
       </div>
      <div class="col-sm-2"></div>
     </div>
+    <% end %>
 
   </body>
 </html>
