@@ -1,3 +1,35 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome{
+  height: 100%;
+  padding: 10%;
+  text-align: center;
+}
+.parallax {
+    /* The image used */
+    background-image: url('img_parallax.jpg');
+
+    /* Full height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.continue{
+width: 200px;
+margin: auto;
+margin-top: 10%;
+opacity: 0.8;
+}
+
+.parallax > .parallaxMessage{
+  text-align: center;
+  padding-top: 20%;
+  text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
+}

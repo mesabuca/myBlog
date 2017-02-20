@@ -25,12 +25,7 @@
  .main_page{
    padding-left: 5%;
  }
-//////////Here is for focusing to posts////////////
- #posts{
-   margin-top: -64px;
-   height: 60px;
- }
-///////////////////////////////////////////////////
+ 
 body{
   background-color: #282b30;
   color : #828282;
@@ -234,32 +229,6 @@ a.socialIcon:hover, .socialHoverClass {
   overflow-y: auto;
   height: 250px;
   text-align: center;
-}
-
-.welcome{
-  height: 100%;
-  padding: 10%;
-  text-align: center;
-}
-.parallax {
-    /* The image used */
-    background-image: url('img_parallax.jpg');
-
-    /* Full height */
-    height: 100%;
-    /* Create the parallax scrolling effect */
-
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-.parallax > .parallaxMessage{
-  text-align: center;
-  padding-top: 20%;
-  text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
 }
 
 .sidebar_border{

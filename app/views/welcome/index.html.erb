@@ -6,13 +6,14 @@
     </h2>
   </div>
   <div class="continue">
-    <%= link_to "DEVAM", anchor:"posts", class:"btn btn-default btn-block btn-lg btn-grey" %>
-    <!-- slide down button (anchor:"posts")-->
+    <%= link_to root_path(anchor:"welcomeText"), class:"btn btn-default btn-block btn-lg btn-grey" do %>
+      <span class="fa fa-angle-double-down"></span>
+    <% end %>
   </div>
 </div>
-<div id="posts"></div>
 
 <div class="welcome">
+  <div id="welcomeText"></div>
   <h2><%= @wMessage.title %></h2><br>
   <h3><%= @wMessage.body %></h3>
 </div>
