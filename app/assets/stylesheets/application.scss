@@ -21,6 +21,10 @@
  body, html {
      height: 100%;
  }
+
+ .main_page{
+   padding-left: 5%;
+ }
 //////////Here is for focusing to posts////////////
  #posts{
    margin-top: -64px;
@@ -83,12 +87,12 @@ p{
 }
 
 .sidebar{
-  width: 400px;
+  width: 350px;
 }
 
 .recently{
   font-size: 120%;
-  width: 400px;
+  width: 350px;
   text-align: center;
   background-color: #333333;
   color: #337ab7;
@@ -96,7 +100,7 @@ p{
 
 .categories{
   font-size: 110%;
-  width: 400px;
+  width: 350px;
   text-align: center;
   background-color: #333333;
   color: #337ab7;
@@ -117,7 +121,7 @@ ul.social-network {
 }
 ul.social-network li {
 	display: inline;
-	margin: 0 10px;
+	margin: 0 7px;
 }
 
 
@@ -234,7 +238,7 @@ a.socialIcon:hover, .socialHoverClass {
 
 .welcome{
   height: 100%;
-  padding-top: 10%;
+  padding: 10%;
   text-align: center;
 }
 .parallax {
