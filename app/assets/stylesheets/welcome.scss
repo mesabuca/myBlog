@@ -21,15 +21,9 @@
     background-size: cover;
 }
 
-.continue{
-width: 200px;
-margin: auto;
-margin-top: 10%;
-opacity: 0.8;
-}
 
 .parallax > .parallaxMessage{
   text-align: center;
   padding-top: 20%;
-  text-shadow: 2px 2px 0 #fff, -2px -2px 0 #fff;
+  text-shadow: 0.5px 0.5px 0 #fff, -0.5px -0.5px 0 #fff;
 }

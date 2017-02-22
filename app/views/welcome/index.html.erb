@@ -6,8 +6,8 @@
     </h2>
   </div>
   <div class="continue">
-    <%= link_to root_path(anchor:"welcomeText"), class:"btn btn-default btn-block btn-lg btn-grey" do %>
-      <span class="fa fa-angle-double-down"></span>
+    <%= link_to root_path(anchor:"welcomeText"), class:"btn btn-default btn-block btn-lg btn-grey continue" do %>
+      <span class="fa fa-angle-double-down fa-2x"></span>
     <% end %>
   </div>
 </div>
@@ -15,5 +15,8 @@
 <div class="welcome">
   <div id="welcomeText"></div>
   <h2><%= @wMessage.title %></h2><br>
-  <h3><%= @wMessage.body %></h3>
+  <h3><%= @wMessage.body %></h3><br>
+  <%= link_to posts_path, class:"btn btn-default btn-lg btn-grey continue" do %>
+    Hadi Başlayalım <span class="fa fa-angle-double-right fa-lg"></span>
+  <% end %>
 </div>

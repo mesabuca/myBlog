@@ -25,7 +25,7 @@
  .main_page{
    padding-left: 5%;
  }
- 
+
 body{
   background-color: #282b30;
   color : #828282;
@@ -59,7 +59,7 @@ body{
 }
 
  .affix {
-       top: 60px;
+       top: 50px;
        margin-right: 7.2%;
    }
 
@@ -94,6 +94,8 @@ p{
 }
 
 .categories{
+  overflow-y: auto;
+  height: 200px;
   font-size: 110%;
   width: 350px;
   text-align: center;
@@ -104,7 +106,7 @@ p{
 
 .btn-grey{
   background-color: #3D424A;
-  color:#337ab7;
+    color: #e6e6e6;
 }
 
 /* footer social icons */
@@ -204,27 +206,6 @@ a.socialIcon:hover, .socialHoverClass {
 	transition: all 0.8s;
 }
 
-.pagination {
-    display: inline-block;
-}
-
-.pagination a {
-    color: black;
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-}
-
-.pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
 .about-me{
   overflow-y: auto;
   height: 250px;
@@ -233,6 +214,6 @@ a.socialIcon:hover, .socialHoverClass {
 
 .sidebar_border{
   padding: 2px;
-  border: 5px solid white;
+  border: 3px solid white;
   border-radius: 10px;
 }
