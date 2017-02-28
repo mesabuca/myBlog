@@ -6,3 +6,7 @@
 <hr>
 <div class="col-sm-6"><%= link_to "Edit", edit_post_path(@post), class:"btn btn-default btn-block btn-lg btn-grey" %></div>
 <div class="col-sm-6"><%= link_to "Delete",  @post, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger btn-block btn-lg" %> </div>
+<div class="comments">
+<br><br><br>
+    <%= render 'comments/form' %>
+</div>

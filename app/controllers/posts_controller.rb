@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
+
+
   def index
     @paginatedPosts = Post.all.order('created_at DESC').page(params[:page]).per('7')
   end
@@ -9,6 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post  = Post.new(post_params)
+    @post.admin_id = current_admin.id if current_admin
     if @post.save
       redirect_to @post, notice: "Post Created"
     else

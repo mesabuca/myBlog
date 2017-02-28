@@ -1,0 +1,28 @@
+<hr>
+<h2 align="center"> Comments </h2>
+<% if current_user.present? || current_admin.present? %>
+	<%= form_for([@post, Comment.new]) do |f| %>
+	  <p>
+	    <%= f.label :body %><br>
+	    <%= f.text_area :body, placeholder: 'Write a comment', class:"form-control" %>
+	  </p>
+	  <p>
+	    <%= f.submit %>
+	  </p>
+	<% end %>
+<% end %>
+
+<% @post.comments.reverse.each do |comment| %>
+	<hr>
+	<% if comment.user_id %>
+		<% if current_user.present? && comment.user_id == current_user.id %>
+			<h4><%= comment.body %> <br> <small>Created at <%=  %> by <%= comment.user.email %></small> </h4>
+			<%= link_to 'Delete', [comment.post, comment], method: :delete %>
+		<% end %>
+	<% else %>
+		<% if current_admin.present? && comment.admin_id == current_admin.id %>
+			<h4><%= comment.body %> <br> <small>Created at <%=  %> by <%= comment.admin.email %></small> </h4>
+			<%= link_to 'Delete', [comment.post, comment], method: :delete %>
+		<% end %>
+	<% end %>
+<% end %>
