@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_admin_user, only: :destroy
   before_action :get_post
   before_action :get_comment, only: :destroy
+  before_action :comment_params
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -29,7 +30,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :post_id, :admin_id, :user_id)
   end
 
   def authenticate_admin_user
